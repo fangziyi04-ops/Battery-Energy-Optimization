@@ -51,51 +51,47 @@ All input profiles are synthetic and are intended for model demonstration.
 The objective is to minimize the net electricity cost:
 
 $$
-\min \sum_{t=1}^{T} \left(c_t^{buy} P_t^{buy} - c_t^{sell} P_t^{sell}\right)\Delta t
+\displaystyle \min \sum_{t=1}^{T} \left( c_t^{\mathrm{buy}} P_t^{\mathrm{buy}} - c_t^{\mathrm{sell}} P_t^{\mathrm{sell}} \right) \Delta t
 $$
 
 where:
 
-- $c_t^{buy}$: electricity purchase price
-- $c_t^{sell}$: electricity export price
-- $P_t^{buy}$: grid import power
-- $P_t^{sell}$: grid export power
+- $c_t^{\mathrm{buy}}$: electricity purchase price
+- $c_t^{\mathrm{sell}}$: electricity export price
+- $P_t^{\mathrm{buy}}$: grid import power
+- $P_t^{\mathrm{sell}}$: grid export power
 - $\Delta t$: time-step duration
 
 ### Power Balance
 
 $$
-P_t^{buy}+P_t^{PV}+P_t^{dis}
-=
-P_t^{load}+P_t^{ch}+P_t^{sell}
+P_t^{\mathrm{buy}} + P_t^{\mathrm{PV}} + P_t^{\mathrm{dis}} = P_t^{\mathrm{load}} + P_t^{\mathrm{ch}} + P_t^{\mathrm{sell}}
 $$
 
 ### Battery Energy Dynamics
 
 $$
-E_{t+1}
-=
-E_t+\eta_{ch}P_t^{ch}\Delta t
--\frac{P_t^{dis}\Delta t}{\eta_{dis}}
+E_{t+1} = E_t + \eta_{\mathrm{ch}} P_t^{\mathrm{ch}} \Delta t - \frac{P_t^{\mathrm{dis}} \Delta t}{\eta_{\mathrm{dis}}}
 $$
 
 ### Battery Capacity Constraints
 
 $$
-0 \leq E_t \leq E_{max}
+0 \leq E_t \leq E_{\max}
 $$
 
 ### Charging and Discharging Limits
 
 $$
-0 \leq P_t^{ch} \leq P_{ch,max}
+0 \leq P_t^{\mathrm{ch}} \leq P_{\mathrm{ch,max}}
 $$
 
 $$
-0 \leq P_t^{dis} \leq P_{dis,max}
+0 \leq P_t^{\mathrm{dis}} \leq P_{\mathrm{dis,max}}
 $$
 
 The initial and final battery energy levels are fixed at 40 kWh.
+
 
 ## 4. Optimization Method
 
