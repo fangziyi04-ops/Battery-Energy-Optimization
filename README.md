@@ -51,12 +51,7 @@ All input profiles are synthetic and are intended for model demonstration.
 The objective is to minimize the net electricity cost:
 
 $$
-\min \sum_{t=1}^{T}
-\left(
-c_t^{buy}P_t^{buy}
--
-c_t^{sell}P_t^{sell}
-\right)\Delta t
+\min \sum_{t=1}^{T} \left(c_t^{buy} P_t^{buy} - c_t^{sell} P_t^{sell}\right)\Delta t
 $$
 
 where:
